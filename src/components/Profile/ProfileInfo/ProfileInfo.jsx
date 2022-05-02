@@ -7,7 +7,7 @@ import ProfileDataForm from "./ProfileDataForm";
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile}) => {
 
-    const {editMode, setEditMode} = useState(false)
+    const [editMode, setEditMode] = useState(false)
 
     if (!profile) {
         return <Preloader/>

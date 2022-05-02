@@ -20,7 +20,7 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
             let newPost = {
                 id: 5,
                 message: action.newPostText,
@@ -31,6 +31,7 @@ const profileReducer = (state = initialState, action) => {
                 posts: [...state.posts, newPost],
                 newPostText: ''
             };
+        }
         case SET_STATUS: {
             return {
                 ...state,
@@ -58,7 +59,7 @@ export const deletePost = (postId) => ({type: DELETE_POST, postId})
 export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO_SUCCESS, photos})
 
 export const getUserProfile = (userId) => async (dispatch) => {
-    let response = await usersAPI.getProfile(userId)
+    const response = await usersAPI.getProfile(userId)
     dispatch(setUserProfile(response.data))
 }
 

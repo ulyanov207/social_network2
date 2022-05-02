@@ -1,7 +1,7 @@
 import React from 'react';
 import Profile from "./Profile";
 import {getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from "../../redux/profile-reducer";
-import connect from "react-redux/lib/connect/connect";
+import {connect} from "react-redux";
 import {useMatch} from "react-router";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
@@ -25,8 +25,9 @@ class ProfileContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.match.params.userId != prevProps.match.params.userId)
+        if (this.props.match.params.userId != prevProps.match.params.userId) {
             this.refreshProfile()
+        }
     }
 
     render() {
@@ -41,12 +42,14 @@ class ProfileContainer extends React.Component {
     }
 };
 
-let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile,
-    status:state.profilePage.status,
-    authorizedUserId: state.auth.userId,
-    isAuth: state.auth.isAuth
-})
+let mapStateToProps = (state) => {
+    return ({
+        profile: state.profilePage.profile,
+        status: state.profilePage.status,
+        authorizedUserId: state.auth.userId,
+        isAuth: state.auth.isAuth
+    })
+}
 
 const ProfileURLMatch = (props) => {
     const match = useMatch('/profile/:userId/')

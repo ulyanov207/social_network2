@@ -1,6 +1,6 @@
 import React from 'react';
-import {Navigate} from "react-router";
-import connect from "react-redux/lib/connect/connect";
+import {Navigate} from "react-router-dom";
+import {connect} from "react-redux";
 
 let mapStateToPropsForRedirect = (state) => ({
     isAuth: state.auth.isAuth

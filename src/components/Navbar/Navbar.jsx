@@ -7,13 +7,13 @@ const Navbar = () => {
     return (
         <nav className={s.nav}>
             <div className={s.item}>
-                <NavLink to="/profile"  style={({ isActive }) => ({ color: isActive ? 'gold' : 'white' })}>Profile</NavLink>
+                <NavLink to="/profile"  activeClassName={s.activeLink}>>Profile</NavLink>
             </div>
             <div className={`${s.item} ${s.active}`}>
-                <NavLink to="/dialogs"  style={({ isActive }) => ({ color: isActive ? 'gold' : 'white' })}>Messages</NavLink>
+                <NavLink to="/dialogs"  activeClassName={s.activeLink}>Messages</NavLink>
             </div>
             <div className={`${s.item} ${s.active}`}>
-                <NavLink to="/users"  style={({ isActive }) => ({ color: isActive ? 'gold' : 'white' })}>Users</NavLink>
+                <NavLink to="/users"   activeClassName={s.activeLink}>Users</NavLink>
             </div>
             <div className={s.item}>
                 <a>News</a>
